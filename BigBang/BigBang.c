@@ -62,9 +62,7 @@ int main() {
 /********************************************************************/
 
     /* The Fat Loop */
-    double tempForceX;
-    double tempForceY;
-    double tempAcceleration;
+    double tempForce, forcesX, forcesY, tempAngle;
 
 
     for(int t = 0; t < NUMBER_OF_ITERATIONS; ++t){
@@ -72,8 +70,8 @@ int main() {
         /* Calculate new speeds from gravitational influence */
         for(int i = 0; i < NUMBER_OF_PARTICLES; ++i){
 
-            double tempForceX = 0;
-            double tempForceY = 0;
+            forcesX = 0;
+            forcesY = 0;
 
             for(int j = 0; j < NUMBER_OF_PARTICLES; ++j){
 
@@ -81,12 +79,19 @@ int main() {
                 if (i == j)
                     continue;
 
-                tempForceX += gravity( god[i], god[j], 'x' );
-                tempForceY += gravity( god[i], god[j], 'y' );
+                tempForce = gravity( god[i], god[j] );
+
+                tempAngle = atan2(god[j]->y - god[i]->y,god[j]->x - god[i]->x);
+
+                forcesX += tempForce * cos(tempAngle);
+                forcesY += tempForce * sin(tempAngle);
+
+
             }
 
-            god[i]->speedX += (SLOW_DOWN_FACTOR * (tempForceX / mass(god[i])));
-            god[i]->speedY += (SLOW_DOWN_FACTOR * (tempForceY / mass(god[i])));
+
+            god[i]->speedX += (SLOW_DOWN_FACTOR * (forcesX / mass(god[i])));
+            god[i]->speedY += (SLOW_DOWN_FACTOR * (forcesY / mass(god[i])));
         }
 
         /* Move particles according to velocity */
@@ -102,14 +107,8 @@ int main() {
 
         }
 
-        // File name "frame0001.tga"
-        int temp = t, j = 0;
-        for(int i = 8; i >= 5; i--){
-            j = 8 - i;
-            fileName[i] = '0' + t % ((int)pow(10,j));
-            temp = temp/10;
+        /* File name code "frame0001.tga" */
 
-        }
 
         if(tga_write(fileName,width,height,image,24)!=TGA_OK) {
             goto error_free;
