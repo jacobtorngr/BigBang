@@ -46,9 +46,12 @@ double gravity(struct particles *particleN, struct particles *particleP){
 
     double dist = distance(particleN, particleP);
 
+    if(dist < MINIMUM_DISTANCE)
+        dist = MINIMUM_DISTANCE;
+
 
     /* Calculate gravitational pull composant */
-    double force = -GRAVITY_CONSTANT * massN * massP / (dist * dist);
+    double force = GRAVITY_CONSTANT * massN * massP / (dist * dist);
 
     return force;
 
@@ -59,20 +62,23 @@ double gravity(struct particles *particleN, struct particles *particleP){
 double distance(struct particles *particleN, struct particles *particleP){
     double dist, tempx, tempy;
 
-    tempx = sqrt( (particleP->x - particleN->x) * (particleP->x - particleN->x) );
-    tempy = sqrt( (particleP->y - particleN->y) * (particleP->y - particleN->y) );
+    tempx = (particleP->x - particleN->x) * (particleP->x - particleN->x);
+    tempy = (particleP->y - particleN->y) * (particleP->y - particleN->y);
     dist = sqrt(tempx + tempy);
+    return dist;
 }
 
 /*****************************************************************************/
 
 double slope(struct particles *particleN, struct particles *particleP){
 
-    /*  */
-    double temp = particleN->y;
+    /* Ensure delta x is not too small */
+    double temp = particleN->x;
     if(particleP->x == particleN->x)
         temp += 0.01;
 
+    double slope = (particleP->y - particleN->y) / (particleP->x - temp);
 
+    return slope;
 
 }
