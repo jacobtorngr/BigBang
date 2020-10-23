@@ -1,0 +1,3 @@
+C:/Users/Jacob/CLionProjects/BigBang/cmake-build-debug/CMakeFiles/BigBang.dir
+C:/Users/Jacob/CLionProjects/BigBang/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Jacob/CLionProjects/BigBang/cmake-build-debug/CMakeFiles/rebuild_cache.dir

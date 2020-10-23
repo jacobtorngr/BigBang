@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Jacob/CLionProjects/BigBang/BigBang.c
+stdio.h
+-
+stdlib.h
+-
+BigBang.h
+C:/Users/Jacob/CLionProjects/BigBang/BigBang.h
+math.h
+-
+
+C:/Users/Jacob/CLionProjects/BigBang/BigBang.h
+tga.h
+C:/Users/Jacob/CLionProjects/BigBang/tga.h
+
+C:/Users/Jacob/CLionProjects/BigBang/tga.h
+stdio.h
+-
+stdlib.h
+-
+inttypes.h
+-
+
