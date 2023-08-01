@@ -21,8 +21,11 @@ int main() {
     char fileName[] = "frame0001.tga";
 
     /* Load image before initial iterations */
-    if(tga_read("empty.tga",&width,&height,&image)!=TGA_OK)
+    if(tga_read("empty.tga",&width,&height,&image)!=TGA_OK){
+        printf("Please copy/move 'empty.tga' into your build directory\n");
         goto error;
+    }
+
 
 /***********************************************************/
 
