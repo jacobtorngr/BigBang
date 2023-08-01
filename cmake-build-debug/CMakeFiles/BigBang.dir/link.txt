@@ -1,3 +1,0 @@
-C:\Users\Jacob\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.6948.80\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\BigBang.dir/objects.a
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\BigBang.dir/objects.a @CMakeFiles\BigBang.dir\objects1.rsp
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\BigBang.dir/objects.a -Wl,--no-whole-archive  -o BigBang.exe -Wl,--out-implib,libBigBang.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BigBang.dir\linklibs.rsp
