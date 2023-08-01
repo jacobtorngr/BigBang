@@ -4,7 +4,6 @@
 #include <math.h>
 
 int main() {
-    srand(SEED);
 
     // Load blank tga file
     int width;
@@ -18,11 +17,11 @@ int main() {
     orange.R=0xFF;  orange.G=0x88;    orange.B=0;
     black.R=0;  black.G=0;    black.B=0;
 
-    char fileName[] = "frame0001.tga";
 
-    /* Load image before initial iterations */
     if(tga_read("empty.tga",&width,&height,&image)!=TGA_OK)
         goto error;
+
+    char fileName[] = "frame0001.tga";
 
 /***********************************************************/
 
@@ -33,17 +32,17 @@ int main() {
         randCircle(god[i], height, width);
     }
 /*
-    god[0]->speedX = -5;
-    god[0]->speedY = -5;
+    god[0]->speedX = -20;
+    god[0]->speedY = -20;
     god[0]->x = width / 2 - 200;
     god[0]->y = height/ 2;
-    god[0]->radius = 20;
+    god[0]->radius = 10;
 
-    god[1]->speedX = 5;
-    god[1]->speedY = 5;
+    god[1]->speedX = 20;
+    god[1]->speedY = 20;
     god[1]->x = width / 2 + 200;
     god[1]->y = height/ 2;
-    god[1]->radius = 20;
+    god[1]->radius = 10;
 */
     /* End array with NULL pointer */
     god[NUMBER_OF_PARTICLES] = NULL;
@@ -54,28 +53,10 @@ int main() {
             god[i]->x += SCALING_OF_INITIAL_ITERATIONS * god[i]->speedX;
             god[i]->y += SCALING_OF_INITIAL_ITERATIONS * god[i]->speedY;
         }
-
-
-
-        /* Change file name "frameXXXX.tga" */
-        FileName(fileName, t);
-
-
         /* Draw circles */
         for(int i = 0; i < NUMBER_OF_PARTICLES; ++i){
-            draw_circle(image, width, height, god[i]->x, god[i]->y, god[i]->radius, &black);
+                draw_circle(image, width, height, god[i]->x, god[i]->y, god[i]->radius, &black);
         }
-
-        /* Write to file */
-        if(tga_write(fileName,width,height,image,24)!=TGA_OK) {
-            goto error_free;
-        }
-
-        /* Reload blank image*/
-        free(image);
-        if(tga_read("empty.tga",&width,&height,&image)!=TGA_OK)
-            goto error;
-
     }
 
 /********************************************************************/
@@ -85,12 +66,6 @@ int main() {
 
 
     for(int t = 0; t < NUMBER_OF_ITERATIONS; ++t){
-
-        /* Reload blank image for current iteration*/
-        free(image);
-        if(tga_read("empty.tga",&width,&height,&image)!=TGA_OK)
-            goto error;
-
 
         /* Calculate new speeds from gravitational influence */
         for(int i = 0; i < NUMBER_OF_PARTICLES; ++i){
@@ -127,16 +102,18 @@ int main() {
 
         /* Draw circles */
         for(int i = 0; i < NUMBER_OF_PARTICLES; ++i){
+
             draw_circle(image, width, height, god[i]->x, god[i]->y, god[i]->radius, &black);
+
         }
 
-        /* Change file name "frameXXXX.tga" */
-        FileName(fileName, t + NUMBER_OF_INITIAL_ITERATIONS);
+        /* File name code "frame0001.tga" */
 
-        /* Write to file */
+
         if(tga_write(fileName,width,height,image,24)!=TGA_OK) {
             goto error_free;
         }
+        /* Reload blank image*/
 
     }
 
@@ -144,12 +121,6 @@ int main() {
 
     exit:
     free(image); /* Free memory allocated by tga_read() */
-
-    /* free particles */
-    for(int i = 0; i < NUMBER_OF_PARTICLES; ++i){
-        free(god[i]);
-    }
-
     return 0;
 
     error_free:

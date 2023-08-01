@@ -169,33 +169,6 @@ BigBang.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BigBang.dir\build.make CMakeFiles/BigBang.dir/BigBang.c.s
 .PHONY : BigBang.c.s
 
-FileName.obj: FileName.c.obj
-
-.PHONY : FileName.obj
-
-# target to build an object file
-FileName.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BigBang.dir\build.make CMakeFiles/BigBang.dir/FileName.c.obj
-.PHONY : FileName.c.obj
-
-FileName.i: FileName.c.i
-
-.PHONY : FileName.i
-
-# target to preprocess a source file
-FileName.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BigBang.dir\build.make CMakeFiles/BigBang.dir/FileName.c.i
-.PHONY : FileName.c.i
-
-FileName.s: FileName.c.s
-
-.PHONY : FileName.s
-
-# target to generate assembly for a file
-FileName.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BigBang.dir\build.make CMakeFiles/BigBang.dir/FileName.c.s
-.PHONY : FileName.c.s
-
 GravityNstuff.obj: GravityNstuff.c.obj
 
 .PHONY : GravityNstuff.obj
@@ -289,9 +262,6 @@ help:
 	@echo ... BigBang.obj
 	@echo ... BigBang.i
 	@echo ... BigBang.s
-	@echo ... FileName.obj
-	@echo ... FileName.i
-	@echo ... FileName.s
 	@echo ... GravityNstuff.obj
 	@echo ... GravityNstuff.i
 	@echo ... GravityNstuff.s

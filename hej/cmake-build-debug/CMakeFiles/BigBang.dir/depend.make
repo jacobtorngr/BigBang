@@ -5,8 +5,6 @@ CMakeFiles/BigBang.dir/BigBang.c.obj: ../BigBang.c
 CMakeFiles/BigBang.dir/BigBang.c.obj: ../BigBang.h
 CMakeFiles/BigBang.dir/BigBang.c.obj: ../tga.h
 
-CMakeFiles/BigBang.dir/FileName.c.obj: ../FileName.c
-
 CMakeFiles/BigBang.dir/GravityNstuff.c.obj: ../BigBang.h
 CMakeFiles/BigBang.dir/GravityNstuff.c.obj: ../GravityNstuff.c
 CMakeFiles/BigBang.dir/GravityNstuff.c.obj: ../tga.h

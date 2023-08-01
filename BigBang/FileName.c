@@ -1,4 +1,3 @@
-#include <stdio.h>
 
 void FileName(char * string,int number){
     int i=0;
@@ -8,4 +7,3 @@ void FileName(char * string,int number){
         i++;
     }
 }
-

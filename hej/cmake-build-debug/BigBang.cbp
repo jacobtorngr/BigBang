@@ -80,9 +80,6 @@
 		<Unit filename="C:/Users/Jacob/CLionProjects/BigBang/BigBang.h">
 			<Option target="BigBang"/>
 		</Unit>
-		<Unit filename="C:/Users/Jacob/CLionProjects/BigBang/FileName.c">
-			<Option target="BigBang"/>
-		</Unit>
 		<Unit filename="C:/Users/Jacob/CLionProjects/BigBang/GravityNstuff.c">
 			<Option target="BigBang"/>
 		</Unit>

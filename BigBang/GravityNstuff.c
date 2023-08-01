@@ -7,26 +7,15 @@
 #include <math.h>
 
 void randCircle(struct particles *particle, int height, int width){
-    int sign1 = 0;
-    int sign2 = 0;
-    int coinFlip1 = rand();
-    int coinFlip2 = rand();
 
-    if(coinFlip1 > (RAND_MAX/2))
-        sign1 = 1;
-    else
-        sign1 = -1;
+    double angle = (double) rand() * 2 * PI / RAND_MAX;
+    double speed = rand() * ORDER_OF_MAGNITUDE;
 
-    if(coinFlip2 > (RAND_MAX/2))
-        sign2 = 1;
-    else
-        sign2 = -1;
-
-    particle->speedX = sign1 * ORDER_OF_MAGNITUDE * rand();
-    particle->speedY = sign2 * ORDER_OF_MAGNITUDE * rand();
+    particle->speedX = cos(angle) * speed;
+    particle->speedY = sin(angle) * speed;
     particle->x = width / 2;
     particle->y = height / 2;
-    particle->radius = 5;
+    particle->radius = STANDARD_RADIUS;
 }
 
 /*****************************************************************************/
@@ -70,15 +59,3 @@ double distance(struct particles *particleN, struct particles *particleP){
 
 /*****************************************************************************/
 
-double slope(struct particles *particleN, struct particles *particleP){
-
-    /* Ensure delta x is not too small */
-    double temp = particleN->x;
-    if(particleP->x == particleN->x)
-        temp += 0.01;
-
-    double slope = (particleP->y - particleN->y) / (particleP->x - temp);
-
-    return slope;
-
-}

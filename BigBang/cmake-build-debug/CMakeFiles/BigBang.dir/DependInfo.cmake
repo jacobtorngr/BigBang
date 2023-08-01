@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/Jacob/CLionProjects/BigBang/BigBang.c" "C:/Users/Jacob/CLionProjects/BigBang/cmake-build-debug/CMakeFiles/BigBang.dir/BigBang.c.obj"
+  "C:/Users/Jacob/CLionProjects/BigBang/FileName.c" "C:/Users/Jacob/CLionProjects/BigBang/cmake-build-debug/CMakeFiles/BigBang.dir/FileName.c.obj"
   "C:/Users/Jacob/CLionProjects/BigBang/GravityNstuff.c" "C:/Users/Jacob/CLionProjects/BigBang/cmake-build-debug/CMakeFiles/BigBang.dir/GravityNstuff.c.obj"
   "C:/Users/Jacob/CLionProjects/BigBang/PlotFunctions.c" "C:/Users/Jacob/CLionProjects/BigBang/cmake-build-debug/CMakeFiles/BigBang.dir/PlotFunctions.c.obj"
   "C:/Users/Jacob/CLionProjects/BigBang/tga.c" "C:/Users/Jacob/CLionProjects/BigBang/cmake-build-debug/CMakeFiles/BigBang.dir/tga.c.obj"

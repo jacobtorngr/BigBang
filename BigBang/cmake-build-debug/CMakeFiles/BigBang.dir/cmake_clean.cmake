@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "BigBang.exe.manifest"
   "BigBang.pdb"
   "CMakeFiles/BigBang.dir/BigBang.c.obj"
+  "CMakeFiles/BigBang.dir/FileName.c.obj"
   "CMakeFiles/BigBang.dir/GravityNstuff.c.obj"
   "CMakeFiles/BigBang.dir/PlotFunctions.c.obj"
   "CMakeFiles/BigBang.dir/tga.c.obj"
