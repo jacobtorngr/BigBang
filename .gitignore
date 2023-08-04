@@ -1,3 +1,4 @@
 .vscode
+*.avi
 cmake-build-debug
 build
