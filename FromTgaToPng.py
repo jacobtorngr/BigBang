@@ -1,8 +1,5 @@
 import os
-import cv2
 from PIL import Image
-from tqdm import tqdm
-import shutil
 
 def convert_tga_to_png(folder_path):
     tga_files = [file for file in os.listdir(folder_path) if file.endswith('.tga')]
@@ -20,6 +17,10 @@ def convert_tga_to_png(folder_path):
         png_path = os.path.splitext(tga_path)[0] + '.png'
         image.save(png_path)
 
+        # Remove original tga file
+        os.remove(tga_path)
+
 if __name__ == "__main__":
-    current_dir = os.getcwd()
-    convert_tga_to_png(current_dir)
+    # build_dir = os.path.join(os.getcwd(), "build")
+    build_dir = os.getcwd()
+    convert_tga_to_png(build_dir)

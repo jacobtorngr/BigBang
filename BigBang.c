@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "BigBang.h"
 #include <math.h>
+#include <python3.10/Python.h>
 
 int main() {
     srand(SEED);
@@ -21,8 +22,7 @@ int main() {
     char fileName[] = "frame0001.tga";
 
     /* Load image before initial iterations */
-    if(tga_read("empty.tga",&width,&height,&image)!=TGA_OK){
-        printf("Please copy/move 'empty.tga' into your build directory\n");
+    if(tga_read("../empty.tga",&width,&height,&image)!=TGA_OK){
         goto error;
     }
 
@@ -76,7 +76,7 @@ int main() {
 
         /* Reload blank image*/
         free(image);
-        if(tga_read("empty.tga",&width,&height,&image)!=TGA_OK)
+        if(tga_read("../empty.tga",&width,&height,&image)!=TGA_OK)
             goto error;
 
     }
@@ -85,13 +85,13 @@ int main() {
 
     /* The Fat Loop */
     double tempForce, forcesX, forcesY, tempAngle;
-
+    Py_Initialize();
 
     for(int t = 0; t < NUMBER_OF_ITERATIONS; ++t){
 
         /* Reload blank image for current iteration*/
         free(image);
-        if(tga_read("empty.tga",&width,&height,&image)!=TGA_OK)
+        if(tga_read("../empty.tga",&width,&height,&image)!=TGA_OK)
             goto error;
 
 
@@ -141,6 +141,14 @@ int main() {
             goto error_free;
         }
 
+        // Convert to png
+        PyObject *obj = Py_BuildValue("s", "../FromTgaToPng.py");
+        FILE *fp = _Py_fopen_obj(obj, "r+");
+
+        if (fp != NULL){
+            PyRun_SimpleFile(fp, "FromTgaToPng.py");
+        }
+
     }
 
 
@@ -153,12 +161,24 @@ int main() {
         free(god[i]);
     }
 
+    // PyRun_SimpleString("print('Hello World')");
+    PyObject *obj = Py_BuildValue("s", "../CreateVideo.py");
+    FILE *fp = _Py_fopen_obj(obj, "r+");
+
+    if (fp != NULL){
+        PyRun_SimpleFile(fp, "CreateVideo.py");
+    }
+    
+    Py_Finalize();
     return 0;
 
     error_free:
+    printf("failed to read empty.tga\n");
     free(image);
+    return -1;
 
     error:
+    printf("failed to read empty.tga\n");
     return -1;
 
 }

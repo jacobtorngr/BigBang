@@ -1,6 +1,5 @@
 import os
 import cv2
-from PIL import Image
 from tqdm import tqdm
 
 FRAME_RATE = 20
@@ -34,6 +33,8 @@ def create_video_from_png_files(folder_path, output_file):
 
         video.write(frame)
 
+        os.remove(png_file)
+
     if video is not None:
         video.release()
         print("Video created successfully.")
@@ -41,5 +42,6 @@ def create_video_from_png_files(folder_path, output_file):
         print("No valid images found to create the video.")
 
 if __name__ == "__main__":
-    current_dir = os.getcwd()
-    create_video_from_png_files(current_dir,"output_video.avi")
+    # build_dir = os.path.join(os.getcwd(),"build")
+    build_dir = os.getcwd()
+    create_video_from_png_files(build_dir,"output_video.avi")
