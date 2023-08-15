@@ -19,7 +19,7 @@ int main() {
     orange.R=0xFF;  orange.G=0x88;    orange.B=0;
     black.R=0;  black.G=0;    black.B=0;
 
-    char fileName[] = "frame0001.tga";
+    char fileName[] = "frame0000.tga";
 
     /* Load image before initial iterations */
     if(tga_read("../empty.tga",&width,&height,&image)!=TGA_OK){

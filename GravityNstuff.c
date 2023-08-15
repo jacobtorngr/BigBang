@@ -9,7 +9,8 @@
 void randCircle(struct particles *particle, int height, int width){
 
     double angle = (double) rand() * 2 * PI / RAND_MAX;
-    double speed = (double) (rand() / RAND_MAX) * (MAXIMUM_SPEED - MINIMUM_SPEED) + MINIMUM_SPEED;
+    double uniformRand = (double) rand() / RAND_MAX;
+    double speed = (double) uniformRand * (MAXIMUM_SPEED - MINIMUM_SPEED) + MINIMUM_SPEED;
 
     particle->speedX = cos(angle) * speed;
     particle->speedY = sin(angle) * speed;
