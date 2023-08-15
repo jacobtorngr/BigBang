@@ -83,7 +83,7 @@ def create_video_from_png_files(folder_path, output_file):
     print("PNG files deleted.")
 
 if __name__ == "__main__":
-    folder_path = "/home/student/test/BigBang/build"
+    folder_path = os.path.join(os.getcwd(), "build")
     output_file = "output_video.avi"
 
     move_tga_files(folder_path)
