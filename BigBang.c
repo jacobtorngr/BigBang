@@ -83,8 +83,8 @@ int main() {
 
     // Add rotating motion
     for(int i=0; i<NUMBER_OF_PARTICLES; i++){
-        god[i]->speedX += 0.1*(god[i]->y - height/2);
-        god[i]->speedY += -0.1*(god[i]->x - width/2);
+        god[i]->speedX = 0.1*(god[i]->y - height/2);
+        god[i]->speedY = -0.1*(god[i]->x - width/2);
     }
 
 /********************************************************************/
