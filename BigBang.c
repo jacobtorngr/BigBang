@@ -148,12 +148,16 @@ int main() {
         if (fp != NULL){
             PyRun_SimpleFile(fp, "FromTgaToPng.py");
         }
-
+        int its = NUMBER_OF_ITERATIONS + NUMBER_OF_INITIAL_ITERATIONS;
+        printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+        printf("Generated frame %i/%i",(t + NUMBER_OF_INITIAL_ITERATIONS +1),its);
+        fflush(stdout);
     }
 
-
+    
 
     exit:
+    printf("\nFrames generated successfully.\n");
     free(image); /* Free memory allocated by tga_read() */
 
     /* free particles */
